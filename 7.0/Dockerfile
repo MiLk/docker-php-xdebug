@@ -3,7 +3,7 @@ FROM php:7.0-apache
 MAINTAINER Emilien Kenler <hello@emilienkenler.com>
 
 RUN apt-get update && apt-get install -y git libpq-dev libmcrypt-dev zlib1g-dev libicu-dev g++ graphviz && rm -rf /var/lib/apt/lists/*
-RUN docker-php-ext-install pdo_pgsql pdo_mysql mbstring mcrypt zip sockets intl
+RUN docker-php-ext-install pdo_pgsql pdo_mysql mbstring mcrypt zip sockets intl bcmath
 
 RUN curl -o /usr/local/bin/composer https://getcomposer.org/composer.phar && \
 	chmod +x /usr/local/bin/composer
@@ -26,7 +26,8 @@ RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226
 
 RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/opcache.so" > /usr/local/etc/php/conf.d/opcache.ini
 
-RUN echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini
+RUN echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini && \
+    echo "apc.enable_cli=1" >> /usr/local/etc/php/conf.d/apcu.ini
 
 RUN echo "realpath_cache_size=4096k" > /usr/local/etc/php/conf.d/tuning.ini && \
     echo "realpath_cache_ttl=300" >> /usr/local/etc/php/conf.d/tuning.ini

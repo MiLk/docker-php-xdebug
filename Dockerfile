@@ -24,7 +24,8 @@ RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226
 
 RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/opcache.so" > /usr/local/etc/php/conf.d/opcache.ini
 
-RUN echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini
+RUN echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini && \
+    echo "apc.enable_cli=1" >> /usr/local/etc/php/conf.d/apcu.ini
 
 RUN echo "realpath_cache_size=4096k" > /usr/local/etc/php/conf.d/tuning.ini && \
     echo "realpath_cache_ttl=300" >> /usr/local/etc/php/conf.d/tuning.ini

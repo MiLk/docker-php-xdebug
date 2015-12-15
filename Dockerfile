@@ -6,11 +6,11 @@ RUN docker-php-ext-install pdo_pgsql pdo_mysql mbstring mcrypt zip sockets intl 
 RUN curl -o /usr/local/bin/composer https://getcomposer.org/composer.phar && \
 	chmod +x /usr/local/bin/composer
 
-RUN pecl install xdebug
+RUN pecl install #XDEBUG_VERSION#
 
-# install apcu
+RUN pecl install #APCU_VERSION#
 
-RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini && \
+RUN echo "zend_extension=/usr/local/lib/php/extensions/#EXTENSION_DIR#/xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini && \
     echo "xdebug.default_enable = 1" >> /usr/local/etc/php/conf.d/xdebug.ini && \
     echo "xdebug.remote_enable = 1" >> /usr/local/etc/php/conf.d/xdebug.ini && \
     echo "xdebug.remote_handler = dbgp" >> /usr/local/etc/php/conf.d/xdebug.ini && \
@@ -22,7 +22,7 @@ RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226
     echo "xdebug.profiler_enable_trigger=1" >> /usr/local/etc/php/conf.d/xdebug.ini && \
     echo "xdebug.profiler_output_dir=\"/tmp\"" >> /usr/local/etc/php/conf.d/xdebug.ini
 
-RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/opcache.so" > /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "zend_extension=/usr/local/lib/php/extensions/#EXTENSION_DIR#/opcache.so" > /usr/local/etc/php/conf.d/opcache.ini
 
 RUN echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini && \
     echo "apc.enable_cli=1" >> /usr/local/etc/php/conf.d/apcu.ini

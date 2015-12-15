@@ -8,9 +8,9 @@ RUN docker-php-ext-install pdo_pgsql pdo_mysql mbstring mcrypt zip sockets intl 
 RUN curl -o /usr/local/bin/composer https://getcomposer.org/composer.phar && \
 	chmod +x /usr/local/bin/composer
 
-RUN pecl install xdebug
+RUN pecl install xdebug-stable
 
-RUN pecl install apcu-stable
+RUN pecl install apcu-4.0.10
 
 RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini && \
     echo "xdebug.default_enable = 1" >> /usr/local/etc/php/conf.d/xdebug.ini && \

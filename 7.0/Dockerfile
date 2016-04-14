@@ -8,7 +8,7 @@ RUN docker-php-ext-install pdo_pgsql pdo_mysql mbstring mcrypt zip sockets intl 
 RUN curl -o /usr/local/bin/composer https://getcomposer.org/composer.phar && \
 	chmod +x /usr/local/bin/composer
 
-RUN pecl install xdebug-beta
+RUN pecl install xdebug-stable
 
 RUN pecl install apcu-stable
 

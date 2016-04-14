@@ -9,7 +9,7 @@ apcu_version=(
 declare -A xdebug_version
 xdebug_version=(
 	[5.6]='xdebug-stable'
-	[7.0]='xdebug-beta'
+	[7.0]='xdebug-stable'
 )
 
 declare -A extensions_dir

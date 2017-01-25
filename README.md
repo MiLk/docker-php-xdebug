@@ -8,6 +8,7 @@
 
 * [`5.6` (*5.6/Dockerfile*)](https://github.com/MiLk/docker-php-xdebug/blob/master/5.6/Dockerfile)
 * [`7.0` (*7.0/Dockerfile*)](https://github.com/MiLk/docker-php-xdebug/blob/master/7.0/Dockerfile)
+* [`7.1` (*7.1/Dockerfile*)](https://github.com/MiLk/docker-php-xdebug/blob/master/7.1/Dockerfile)
 
 ## How to use this image.
 

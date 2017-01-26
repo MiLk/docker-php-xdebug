@@ -1,5 +1,17 @@
 # Docker php-xdebug image
 
+This image is based on the official php image.
+It also does the following:
+* Enable `pdo_pgsql`, `pdo_mysql`, `mbstring`, `mcrypt`, `zip`, `sockets`, `intl` and `bcmath` extensions.
+* Install [composer](https://getcomposer.org/).
+* Install [XDebug](https://xdebug.org/).
+* Install [APCu](http://php.net/manual/en/book.apcu.php).
+* Configure [XDebug](https://xdebug.org/) to be used in Docker.
+* Enable [OPCache](http://php.net/manual/en/book.opcache.php).
+* Configure [`realpath_cache_size` and `realpath_cache_ttl`](http://php.net/manual/en/ini.core.php#ini.sect.performance).
+* Set the [default timezone](http://php.net/manual/en/datetime.configuration.php#ini.date.timezone) to `UTC`.
+* Enable the apache [rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) module.
+
 ## Base image
 
 * [`php`](https://hub.docker.com/_/php/)
